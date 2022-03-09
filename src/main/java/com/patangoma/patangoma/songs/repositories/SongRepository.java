@@ -58,15 +58,6 @@ public class SongRepository {
         }
     }
 
-    public void getOptions(Product product) {
-        List<ProductOption> productOptions = entityManager.createQuery("SELECT p FROM ProductOption p", ProductOption.class).getResultList();
-        for (ProductOption productOption : productOptions) {
-            if (productOption.getProductId() == product.getProductId()) {
-                product.addProductOption(productOption);
-            }
-        }
-    }
-
 
     public void updateProduct(Long id, Product product) {
         Product productToUpdate = entityManager.find(Product.class, id);
@@ -74,18 +65,6 @@ public class SongRepository {
         productToUpdate.setProductImage(product.getProductImage());
         productToUpdate.setProductDescription(product.getProductDescription());
         entityManager.persist(productToUpdate);
-    }
-
-
-    public List<ProductOption> getProductOptions(Long id) {
-        List<ProductOption> options = entityManager.createQuery("SELECT p FROM ProductOption p", ProductOption.class).getResultList();
-        List<ProductOption> optionsToReturn = new ArrayList<>();
-        for (ProductOption option : options) {
-            if (option.getProductId() == id) {
-                optionsToReturn.add(option);
-            }
-        }
-        return optionsToReturn;
     }
 
     public List<Album> getAlbums(Long id) {
