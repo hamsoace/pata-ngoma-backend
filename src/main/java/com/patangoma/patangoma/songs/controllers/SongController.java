@@ -48,8 +48,8 @@ public class SongController {
     }
 
     @GetMapping("/{id}/album")
-    public List<Album> getAlbum(@PathVariable("id") Long id){
-        return songService.getAlbum(id);
+    public List<Album> getAlbums(@PathVariable("id") Long id){
+        return songService.getAlbums(id);
     }
 
     @PostMapping("/{id}/album")
