@@ -169,6 +169,14 @@ public class Songs {
         this.songType = songType;
     }
 
+    public void addAlbum(Album album) {
+        this.albums.add(album);
+    }
+
+    public void removeAllAlbums() {
+        this.albums.clear();
+    }
+
     public void removeAlbum(Album album) {
         this.albums.remove(album);
     }
