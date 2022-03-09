@@ -1,6 +1,7 @@
 package com.patangoma.patangoma.songs.controllers;
 
 import com.patangoma.patangoma.songs.models.Album;
+import com.patangoma.patangoma.songs.models.Songs;
 import com.patangoma.patangoma.songs.services.AlbumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,8 +25,8 @@ public class AlbumController {
     }
 
     @GetMapping("/{id}")
-    public Album getAlbumByAlbumId(@PathVariable("id") Long albumId) {
-        return albumService.getAlbumByAlbumId(albumId);
+    public Album getAlbumBySongId(@PathVariable("id") Long albumId) {
+        return albumService.getAlbumBySongId(albumId);
     }
 
     @PostMapping
@@ -44,7 +45,7 @@ public class AlbumController {
     }
 
     @GetMapping("/get")
-    public List<Album> getAllAlbumName(@RequestParam("name") String name) {
-        return albumService.getAllAlbumName(name);
+    public List<Songs> getAllSongsByAlbumName(@RequestParam("name") String name) {
+        return albumService.getAllSongsByAlbumName(name);
     }
 }

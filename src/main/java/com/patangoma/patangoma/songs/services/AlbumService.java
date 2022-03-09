@@ -1,6 +1,7 @@
 package com.patangoma.patangoma.songs.services;
 
 import com.patangoma.patangoma.songs.models.Album;
+import com.patangoma.patangoma.songs.models.Songs;
 import com.patangoma.patangoma.songs.repositories.AlbumRepository;
 import com.patangoma.patangoma.songs.repositories.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,32 @@ public class AlbumService {
         albumRepository.save(new Album());
     }
 
-    public List<Album> getAlbum(){
+    public List<Album> getAllAlbum(){
         return albumRepository.findAll();
+    }
+
+    public Album getAlbumBySongId(Long songId) {
+        return albumRepository.findBySongId(songId);
+    }
+
+    public void createAlbum(Album album) {
+        albumRepository.save(album);
+    }
+
+    public void updateAlbum(Album album) {
+        albumRepository.save(album);
+    }
+
+    public void deleteAlbum(Long id) {
+        albumRepository.deleteById(id);
+    }
+
+    public List<Songs> getAllSongsByAlbumName(String name) {
+
+        List<Songs> songs = songRepository.findAllByAlbum(name);
+
+
+        return songs;
     }
 
 
