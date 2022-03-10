@@ -60,34 +60,34 @@ public class SongRepository {
     }
 
 
-    public void updateProduct(Long id, Product product) {
-        Product productToUpdate = entityManager.find(Product.class, id);
-        productToUpdate.setProductName(product.getProductName());
-        productToUpdate.setProductImage(product.getProductImage());
-        productToUpdate.setProductDescription(product.getProductDescription());
-        entityManager.persist(productToUpdate);
+    public void updateSong(Long id, Songs songs) {
+        Songs songsToUpdate = entityManager.find(Songs.class, id);
+        songsToUpdate.setSongName(songs.getSongName());
+        songsToUpdate.setSongImage(songs.getSongImage());
+        songsToUpdate.setSongDescription(songs.getSongDescription());
+        entityManager.persist(songsToUpdate);
     }
 
     public List<Album> getAlbums(Long id) {
         List<Album> albums = entityManager.createQuery("SELECT al FROM Album pc", Album.class).getResultList();
-        List<Album> productCategoriesToReturn = new ArrayList<>();
+        List<Album> albumsToReturn = new ArrayList<>();
         for (Album album : albums) {
             if (album.getSongId() == id) {
                 albumsToReturn.add(album);
             }
         }
-        return productCategoriesToReturn;
+        return albumsToReturn;
     }
 
-    public List<Product> findAllByProductCategory(String name) {
-        List<Product> products = entityManager.createQuery("SELECT p FROM Product p", Product.class).getResultList();
-        List<Product> productsToReturn = new ArrayList<>();
-        for (Product product : products) {
-            if(product.getProductType().equalsIgnoreCase(name)) {
-                productsToReturn.add(product);
+    public List<Songs> findAllByAlbum(String name) {
+        List<Songs> songs = entityManager.createQuery("SELECT s FROM Songs s", Songs.class).getResultList();
+        List<Songs> songsToReturn = new ArrayList<>();
+        for (Songs song : songs) {
+            if(song.getSongType().equalsIgnoreCase(name)) {
+                songsToReturn.add(song);
             }
         }
-        return productsToReturn;
+        return songsToReturn;
     }
 
 }
