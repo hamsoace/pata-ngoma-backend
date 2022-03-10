@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -32,7 +33,7 @@ public class SongRepository {
         //find all songs
         List<Songs> songs = entityManager.createQuery("SELECT s FROM Songs s", Songs.class).getResultList();
         for (Songs songs1 : songs) {
-            getAlbum(songs);
+            getAlbum(songs1);
         }
         return songs;
     }
@@ -68,11 +69,11 @@ public class SongRepository {
     }
 
     public List<Album> getAlbums(Long id) {
-        List<ProductCategory> productCategories = entityManager.createQuery("SELECT pc FROM ProductCategory pc", ProductCategory.class).getResultList();
-        List<ProductCategory> productCategoriesToReturn = new ArrayList<>();
-        for (ProductCategory productCategory : productCategories) {
-            if (productCategory.getProductId() == id) {
-                productCategoriesToReturn.add(productCategory);
+        List<Album> albums = entityManager.createQuery("SELECT al FROM Album pc", Album.class).getResultList();
+        List<Album> productCategoriesToReturn = new ArrayList<>();
+        for (Album album : albums) {
+            if (album.getSongId() == id) {
+                albumsToReturn.add(album);
             }
         }
         return productCategoriesToReturn;
