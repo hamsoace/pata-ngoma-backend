@@ -29,7 +29,7 @@ public class SongService {
     }
 
     public List<Songs> getAllSongs(){
-        return songRepository.getALlSongs();
+        return songRepository.getAllSongs();
     }
 
     public Songs getSongs(Long id){
@@ -58,8 +58,8 @@ public class SongService {
         return album;
     }
 
-    public Album updateAlbum(Long id, Long categoryId, Album album) {
-        albumRepository.updateAlbum(categoryId, album);
+    public Album updateAlbum(Long id, Long albumId, Album album) {
+        albumRepository.updateAlbum(albumId, album);
         return album;
     }
 
