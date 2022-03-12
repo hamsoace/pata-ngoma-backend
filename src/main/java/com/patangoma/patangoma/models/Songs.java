@@ -1,4 +1,4 @@
-package com.patangoma.patangoma.songs.models;
+package com.patangoma.patangoma.models;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;

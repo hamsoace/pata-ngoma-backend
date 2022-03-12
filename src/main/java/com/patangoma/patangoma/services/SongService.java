@@ -1,9 +1,9 @@
-package com.patangoma.patangoma.songs.services;
+package com.patangoma.patangoma.services;
 
-import com.patangoma.patangoma.songs.models.Album;
-import com.patangoma.patangoma.songs.models.Songs;
-import com.patangoma.patangoma.songs.repositories.AlbumRepository;
-import com.patangoma.patangoma.songs.repositories.SongRepository;
+import com.patangoma.patangoma.models.Album;
+import com.patangoma.patangoma.models.Songs;
+import com.patangoma.patangoma.repositories.AlbumRepository;
+import com.patangoma.patangoma.repositories.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

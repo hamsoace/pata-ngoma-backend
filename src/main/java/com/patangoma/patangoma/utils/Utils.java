@@ -1,4 +1,4 @@
-package com.patangoma.patangoma;
+package com.patangoma.patangoma.utils;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

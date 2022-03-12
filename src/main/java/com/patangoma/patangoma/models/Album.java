@@ -1,4 +1,4 @@
-package com.patangoma.patangoma.songs.models;
+package com.patangoma.patangoma.models;
 
 
 import javax.persistence.Column;

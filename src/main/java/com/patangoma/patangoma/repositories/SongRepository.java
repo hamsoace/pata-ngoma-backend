@@ -1,7 +1,7 @@
-package com.patangoma.patangoma.songs.repositories;
+package com.patangoma.patangoma.repositories;
 
-import com.patangoma.patangoma.songs.models.Album;
-import com.patangoma.patangoma.songs.models.Songs;
+import com.patangoma.patangoma.models.Album;
+import com.patangoma.patangoma.models.Songs;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
