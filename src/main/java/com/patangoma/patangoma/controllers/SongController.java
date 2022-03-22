@@ -5,12 +5,14 @@ import com.patangoma.patangoma.models.Songs;
 import com.patangoma.patangoma.services.AlbumService;
 import com.patangoma.patangoma.services.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("api/songs")
+@EnableAutoConfiguration
+@RequestMapping("api/v1/songs")
 @CrossOrigin("*")
 public class SongController {
     private final SongService songService;

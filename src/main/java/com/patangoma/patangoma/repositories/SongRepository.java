@@ -2,6 +2,7 @@ package com.patangoma.patangoma.repositories;
 
 import com.patangoma.patangoma.models.Album;
 import com.patangoma.patangoma.models.Songs;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -10,6 +11,7 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
+@Qualifier("songs")
 @Repository
 public class SongRepository {
 
@@ -31,7 +33,7 @@ public class SongRepository {
     @Transactional
     public List<Songs> getAllSongs() {
         //find all songs
-        List<Songs> songs = entityManager.createQuery("SELECT s FROM Songs s", Songs.class).getResultList();
+        List<Songs> songs = entityManager.createQuery("SELECT songs FROM Songs songs", Songs.class).getResultList();
         for (Songs songs1 : songs) {
             getAlbum(songs1);
         }
@@ -51,7 +53,7 @@ public class SongRepository {
     }
 
     public void getAlbum(Songs songs) {
-        List<Album> albums = entityManager.createQuery("SELECT al FROM Album al", Album.class).getResultList();
+        List<Album> albums = entityManager.createQuery("SELECT albums FROM Album albums", Album.class).getResultList();
         for (Album album : albums) {
             if (album.getSongId() == songs.getSongId()) {
                 songs.addAlbum(album);
@@ -69,7 +71,7 @@ public class SongRepository {
     }
 
     public List<Album> getAlbums(Long id) {
-        List<Album> albums = entityManager.createQuery("SELECT al FROM Album pc", Album.class).getResultList();
+        List<Album> albums = entityManager.createQuery("SELECT albums FROM Album pc", Album.class).getResultList();
         List<Album> albumsToReturn = new ArrayList<>();
         for (Album album : albums) {
             if (album.getSongId() == id) {
@@ -80,7 +82,7 @@ public class SongRepository {
     }
 
     public List<Songs> findAllByAlbum(String name) {
-        List<Songs> songs = entityManager.createQuery("SELECT s FROM Songs s", Songs.class).getResultList();
+        List<Songs> songs = entityManager.createQuery("SELECT songs FROM Songs songs", Songs.class).getResultList();
         List<Songs> songsToReturn = new ArrayList<>();
         for (Songs song : songs) {
             if(song.getSongType().equalsIgnoreCase(name)) {

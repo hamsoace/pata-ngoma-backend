@@ -1,10 +1,7 @@
 package com.patangoma.patangoma.models;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Entity
@@ -14,8 +11,8 @@ public class Album {
     @Id
     private long albumId;
     private long songId;
-    private String albumName;
     @Column(columnDefinition = "TEXT")
+    private String albumName;
     private String albumDescription;
 
     public Album(){

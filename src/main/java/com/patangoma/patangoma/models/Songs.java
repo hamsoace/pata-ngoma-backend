@@ -1,12 +1,7 @@
 package com.patangoma.patangoma.models;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
 
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,13 +25,25 @@ public class Songs {
     private String songDescription;
     private String songImage;
     private String songUrl;
-    @Transient
+    @javax.persistence.Transient
     private List<Album> albums = new ArrayList<>();
     private Timestamp songUpdateDate;
     private Timestamp songCreateDate;
     private String songStatus;
     @Transient
     private String songType;
+
+//    @ManyToOne
+//    @JoinColumn(name = "song_entity_id")
+//    private SongEntity songEntity;
+//
+//    public SongEntity getSongEntity() {
+//        return songEntity;
+//    }
+//
+//    public void setSongEntity(SongEntity songEntity) {
+//        this.songEntity = songEntity;
+//    }
 
     public Long getId() {
         return id;

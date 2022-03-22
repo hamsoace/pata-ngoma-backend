@@ -1,6 +1,7 @@
 package com.patangoma.patangoma.repositories;
 
 import com.patangoma.patangoma.models.Album;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -8,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
 
+@Qualifier("albums")
 @Repository
 public class AlbumRepository {
 
@@ -26,7 +28,7 @@ public class AlbumRepository {
 
     @Transactional
     public List<Album> findAll() {
-        return entityManager.createQuery("select al from Album al", Album.class).getResultList();
+        return entityManager.createQuery("Select albums from Album albums", Album.class).getResultList();
     }
 
     @Transactional
